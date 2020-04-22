@@ -29,10 +29,14 @@ class CategoryController extends AdminBaseController
 
     public function actionCreate()
     {
-        if (!empty($_POST) && isset($_POST['add'])) {
+        if (!empty($_POST) && isset($_POST['add'])){
             $category = new Category($_POST);
-            if (!empty($category->validate())) {
-                $this->view->render('admin/category/create', []);
+            $validate = $category->validate();
+            if (!empty($category->validate())){
+                $this->view->render('admin/category/create', $validate);
+            }
+            if ($category->categoryCreate()){
+                Auth::goCategoryPage();
             }
         }
         $this->view->setTitle('Create Category');
@@ -40,22 +44,26 @@ class CategoryController extends AdminBaseController
 
         return true;
     }
-
     public function actionUpdate($id)
     {
-        $update = Db::getConnection()->prepare("SELECT * FROM `categories` WHERE `id`='$id'");
-        $update->execute();
-        $arrSelect = $update->fetchAll(\PDO::FETCH_ASSOC);
+        $select = Db::getConnection()->prepare("SELECT * FROM `categories` WHERE `id`='$id'");
+        $select->execute();
+        $arrSelect = $select->fetchAll(\PDO::FETCH_ASSOC);
 
-        if (!empty($_POST) && isset($_POST['submit'])) {
+        if (!empty($_POST) && isset($_POST['submit'])){
             $update = new Category($_POST);
-            {
-                $this->view->render('admin/category/update', []);
+            $validate = $update->validate();
+            if (!empty($update->validate())){
+                $this->view->render('admin/category/update', $validate);
+
             }
             $name = $_POST['name'];
-            $update_all = Db::getConnection()->prepare("UPDATE `categories` SET `name`='$name' WHERE `id`='$id'");
-            $update_all->execute();
 
+            $updCategory = Db::getConnection()->prepare("UPDATE `categories` SET `name`='$name' WHERE `id`='$id'");
+            $updCategory->execute();
+            if ($updCategory->execute()){
+               Auth::goCategoryPage();
+            }
         }
         $this->view->setTitle('Update');
         $this->view->render('admin/category/update', $arrSelect);

@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../../assets/category/css/style.css">
+    <link rel="stylesheet" href="../../../assets/admin/css/style.css">
 </head>
 <body>
 
@@ -64,5 +65,7 @@ User name / password?
 <script src="../../../assets/admin/js/popper.js"></script>
 <script src="../../../assets/admin/js/bootstrap.min.js"></script>
 <script src="../../../assets/admin/js/main.js"></script>
+<script src="../../../assets/category/js/index.js"></script>
+<script src="../../../assets/category/js/jquery-3.4.1.min.js"></script>
 </body>
 </html>

@@ -20,29 +20,33 @@ $('.clear').on('click',function(){
 
 });
 
-$('.delete').on('click',function(){
-console.log(5452);
+$(document).on('click', '.delete', function () {
+    let id = $(this).attr('data-id');
+    let del = $(this).closest('tr')[0];
+    $.confirm({
+        title: 'Warning',
+        content: 'do you really want to delete?',
+        buttons: {
+            OK: function() {
+                $.ajax({
+                    url: window.location.origin + '/admin/category/delete',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {del_id: id},
+                    success: function (data) {
+                        if (data){
+                            del.remove();
+                        }
+                    }
+                })
+            },
+            cancel: function () {
+
+            },
+        },
+    });
 });
-$('.del').on('click',function(){
 
-    let _id = $(this).closest("tr")[0].cells[0].innerText;
-    let _this = $(this).closest("tr")[0];
-    let conf=confirm("Are you want to delete?");
-    if (conf) {
-        $.ajax({
-            url: '../model/deleteMod.php',
-            type: 'POST',
-            data: {id: _id},
-            success: function (data) {
-                if (data){
-                    _this.remove();
-                }
-
-            }
-        });
-    }
-
-});
 
 $('#catSearch').keyup(function () {
     let txt=$(this).val();

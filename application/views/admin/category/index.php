@@ -92,13 +92,13 @@ echo "All Categories";
                         </td>
                     </tr>
                     <?php endforeach; ?>
-                <?php endif; ?>
+                <?php endif;
 
 
-
+?>
                 </tbody>
             </table>
-            <script src="js/index.js"></script>
-            <script src="js/jquery-3.4.1.min.js"></script>
+            <script src="../../../assets/category/js/index.js"></script>
+            <script src="../../../assets/category/js/jquery-3.4.1.min.js"></script>
 </body>
 </html>

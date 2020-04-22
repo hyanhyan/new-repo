@@ -39,10 +39,7 @@ class Auth
         }
     }
 
-    public static function setSession($id)
-    {
-        $_SESSION['id'] = $id;
-    }
+
     public static function isAdmin($role)
     {
         if ($_SESSION['user']['role'] == $role) {
@@ -51,7 +48,11 @@ class Auth
 
         return true;
     }
-
+    public static function setSession($id, $role = '')
+    {
+        $_SESSION['user']['id'] = $id;
+        $_SESSION['user']['role'] = $role;
+    }
     public static function setCookie($user_name, $cookie_key)
     {
         setcookie('name', $user_name, time() + (60 * 60 * 24), '/');
@@ -70,14 +71,25 @@ class Auth
         header("Location: /"); // redirect to home page
         die;
     }
-
+    public static function redirect($url)
+    {
+        header("Location: ".$url);
+    }
     public static function goHome()
     {
         header("Location: /"); // redirect to home page
     }
-
-    public static function goLoginPage()
+    public static function goAdminPage()
+{
+    header("Location: /admin"); // redirect to admin page
+}
+    public static function goCategoryPage()
     {
-        header("Location: /user/login"); // redirect to login page
+        header('Location: /admin/category/index'); // redirect to category page
+    }
+
+    public static function goProductPage()
+    {
+        header("Location: /admin/product/index"); // redirect to login page
     }
 }

@@ -15,6 +15,7 @@ class Category
     {
         if (!empty($post['name'])){
             $this->name = $post['name'];
+            //var_dump($this->name);
         }
     }
 
@@ -39,7 +40,7 @@ class Category
     }
     public function categoryCreate(){
         if ($this->validate() == []){
-            $create = Db::getConnection()->prepare("INSERT INTO `categories` (`name`, `create_time`, `update_time`)
+            $create = Db::getConnection()->prepare("INSERT INTO `categories` (`name`, `created_date`, `update_date`)
                             VALUES ('$this->name', now(), now())");
             $create->execute();
             return true;

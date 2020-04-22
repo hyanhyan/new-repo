@@ -15,14 +15,14 @@ echo \application\components\Message::get_message();
 </head>
 <body>
 <p>Add new category</p>
-<form action="" method="post" id="add_details">
+<form action="/admin/category/create" method="post" id="add_details">
     <input type="text" name="name" class="form-control" style="border:1px solid black">
-    <div><?php if (!empty($data) && isset($data['name'])){ echo $data['name'];} ?></div>
+    <small><?php if (!empty($data) && isset($data['name'])){ echo $data['name'];} ?></small>
     <input type="submit" name="add" id="add" class="btn btn-success">Add
 </form>
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+<script src="../../../../assets/category/js/jquery.min.js"></script>
+<script src="../../../../assets/category/js/popper.js"></script>
+<script src="../../../../assets/category/js/bootstrap.min.js"></script>
+<script src="../../../../assets/category/js/main.js"></script>
 </body>
 </html>

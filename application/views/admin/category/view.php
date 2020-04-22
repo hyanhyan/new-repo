@@ -1,9 +1,6 @@
 <?php
 use application\components\Db;
-echo "View Category ".$data['id'];
-$stmt = Db::getConnection()->prepare("SELECT * FROM `categories` WHERE `id`={$data['id']}");
-$stmt->execute();
-$res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
 ?>
 <html lang="en">
 <head>
@@ -82,7 +79,7 @@ $res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     </tbody>
 
                 </table>
-                <script src="js/index.js"></script>
-                <script src="js/jquery-3.4.1.min.js"></script>
+                <script src="../../../../assets/js/index.js"></script>
+                <script src="../../../../assets/category/js/jquery-3.4.1.min.js"></script>
 </body>
 </html>

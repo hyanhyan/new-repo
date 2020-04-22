@@ -1,7 +1,7 @@
 <?php
 echo \application\components\Message::get_message();
 use application\components\Db;
-$id=$_GET["id"];
+
 
 
 
@@ -27,9 +27,10 @@ $id=$_GET["id"];
     </head>
 <body>
 <div class="aa">
-    <form action="" method="get">
+    <form action="" method="post">
         <input type="text" name="name" class="form-control" placeholder="Name category"
                value="<?php if (!empty($data) && isset($data[0]['name'])){ echo $data[0]['name'];} ?>">
+        <small><?php if (!empty($data) && isset($data['name'])){ echo $data['name'];} ?></small>
         <button type="submit" name="submit" data-id="" class="sub">Submit</button>
     </form>
 </div>
