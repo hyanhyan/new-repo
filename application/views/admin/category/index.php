@@ -98,7 +98,5 @@ echo "All Categories";
 ?>
                 </tbody>
             </table>
-            <script src="../../../assets/category/js/index.js"></script>
-            <script src="../../../assets/category/js/jquery-3.4.1.min.js"></script>
-</body>
+
 </html>

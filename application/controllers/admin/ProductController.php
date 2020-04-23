@@ -33,20 +33,23 @@ class ProductController extends AdminBaseController
 
     public function actionCreate()
     {
-        $category = Db::getConnection()->prepare("SELECT * FROM `categories`");
-        $category->execute();
-        $arrCategory = $category->fetchAll(PDO::FETCH_ASSOC);
         if (!empty($_POST) && isset($_POST['submit'])) {
             $product = new Product($_POST);
-            if (!empty($product->validate())) {
-                $this->view->render('admin/product/create', []);
+            $all = Product::categorySelect();
+            $validate = $product->validate();
+            if (empty($validate)) {
+                if ($product->ProductCreate()) {
+                    Auth::goProductPage();
+                }
             }
         }
+
         $this->view->setTitle('Create Product');
-        $this->view->render('admin/product/create', []);
+        $this->view->render('admin/product/create', [],$all);
 
         return true;
     }
+
 
 
 }

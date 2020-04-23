@@ -2,13 +2,13 @@
 
 
 namespace application\models;
+
+
 use application\components\Db;
 use application\components\Validator;
 
-
 class Product
 {
-
     public $name;
     public $option;
     public $new;
@@ -19,13 +19,31 @@ class Product
 
     public function __construct($post)
     {
-        $this->name=$post['name'];
-        $this->option=$post['select'];
-        $this->new=$post['new'];
-        $this->price=$post['price'];
-        $this->img=$post['img'];
-        $this->desc=$post['desc'];
+        if (!empty($post['name'])) {
+            $this->name = $post['name'];
+        }
+        if (!empty($post['sel'])) {
+            $this->option = $post['sel'];
+        }
+        if (!empty($post['new'])) {
+            $this->new = $post['new'];
+        }
+        if (!empty($post['price'])) {
+            $this->price = $post['price'];
+        }
+        if (!empty($post['img'])) {
+            $this->img = $post['img'];
+        }
+        if (!empty($post['desc'])) {
+            $this->desc = $post['desc'];
+        }
+
+
     }
+
+
+    //var_dump($this->name);
+
 
     protected function rules()
     {
@@ -39,26 +57,45 @@ class Product
         ];
     }
 
-    public function validate(){
+    public function validate()
+    {
         $validator = new Validator($this->rules());
-        if (!empty($validator->validate())){
+        if (!empty($validator->validate())) {
             return $validator->validate();
         }
         return [];
     }
-    public function ProductIndex() {
-        $products = Db::getConnection()->prepare("SELECT `products`.*, `categories`.`name`,
+
+    public function ProductIndex()
+    {
+        $product = Db::getConnection()->query("SELECT `products`.*, `categories`.`name`  
                                         FROM `products`
                                             LEFT JOIN `categories` ON products.category_id=categories.id");
-        $products->execute();
-        $arr = $products->fetchAll(PDO::FETCH_ASSOC);
-        return $arr;
+        $product->execute();
+        $arrayCat = $product->fetchAll(\PDO::FETCH_ASSOC);
+        return $arrayCat;
     }
-    public function ProductCreate(){
-$insert_products = Db::getConnection()->prepare("INSERT INTO `products` (`prName`,`category_id`,`is_New`, `price`,`image_path`,`description`,`created_date`, `update_date`) 
-                                                      VALUES ('$this->name', '$this->option,'$this->new','$this->price','$this->img','$this->desc', now(), now())");
-$insert_products->execute();
-        $ins = $insert_products->fetchAll(PDO::FETCH_ASSOC);
-        return $ins;
+
+    public function categorySelect()
+    {
+         $category = [];
+         $categorySelect = Db::getConnection()->prepare("SELECT * FROM `categories`");
+         $cat=$categorySelect->fetchAll(\PDO::FETCH_ASSOC);
+         $category['id']=$cat['id'];
+         $category['name']=$cat['name'];
+        return $category;
     }
+    public function ProductCreate()
+    {
+        if ($this->validate() == []) {
+            $insert_products = Db::getConnection()->prepare("INSERT INTO `products` (`prName`,`is_New`, `category_id`,`price`,`image_path`,`description`,`created_date`, `update_date`) 
+                                                      VALUES ('$this->name', '$this->new','$this->option','$this->price','$this->img','$this->desc', now(), now())");
+            $insert_products->execute();
+
+            return true;
+        }
+        return false;
+    }
+
+
 }

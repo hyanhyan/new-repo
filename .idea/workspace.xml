@@ -2,29 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4ba4659-1022-4f82-93d2-87ea194ffa32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/components/Pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/controllers/admin/ProductController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/Product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/admin/product/create.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/admin/product/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/admin/product/update.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/admin/product/view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery-3.5.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/jquery-1.11.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/jquery-3.5.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/jquery.gmap3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/maps/jquery.nanoscroller.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/min/custom.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/min/plugins.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/owl.carousel.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/slick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/sliderpro.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/javascript/wow.animation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/base/BaseView.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/base/BaseView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/components/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/components/Auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/components/Validator.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/components/Validator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/admin/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/admin/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/admin/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/admin/category/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/category/create.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/admin/category/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/category/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/category/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/category/js/jquery-3.4.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/category/js/jquery-3.4.1.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/category/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/category/update.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/admin/category/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/category/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/dashboard/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/dashboard/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/product/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/product/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/product/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/product/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/layout/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layout/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/bxslider.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/bxslider.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery-3.5.0.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/jquery-3.5.0.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.easing.1.3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/jquery.easing.1.3.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.sticky.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/jquery.sticky.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/owl.carousel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/owl.carousel.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/script.slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.slider.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +60,7 @@
   <component name="ProjectId" id="1ZwvHhAzhWAIJHm9W17UK38AIxt" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -59,16 +69,18 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\trining\assets\js" />
-      <recent name="C:\xampp\htdocs\trining\application\components" />
-      <recent name="C:\xampp\htdocs\homework\js" />
-      <recent name="C:\Users\ZARA\PhpstormProjects\homework" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\trining\assets\admin\js" />
       <recent name="C:\xampp\htdocs\trining\assets\js" />
       <recent name="C:\xampp\htdocs\trining\assets\category" />
       <recent name="C:\xampp\htdocs\homework\application\views\layout" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\trining\assets" />
+      <recent name="C:\xampp\htdocs\trining\assets\admin\js" />
+      <recent name="C:\xampp\htdocs\trining\assets\admin" />
+      <recent name="C:\xampp\htdocs\trining\assets\js" />
+      <recent name="C:\xampp\htdocs\trining\application\components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -127,7 +139,20 @@
       <workItem from="1587573162081" duration="1708000" />
       <workItem from="1587574981871" duration="1737000" />
       <workItem from="1587576805821" duration="1762000" />
-      <workItem from="1587578740946" duration="1382000" />
+      <workItem from="1587578740946" duration="1755000" />
+      <workItem from="1587580654110" duration="427000" />
+      <workItem from="1587635115370" duration="1343000" />
+      <workItem from="1587636670880" duration="2180000" />
+      <workItem from="1587640539411" duration="1862000" />
+      <workItem from="1587643298837" duration="1712000" />
+      <workItem from="1587645128891" duration="1733000" />
+      <workItem from="1587646976027" duration="1727000" />
+      <workItem from="1587648814169" duration="1736000" />
+      <workItem from="1587657692656" duration="1610000" />
+      <workItem from="1587659482401" duration="1851000" />
+      <workItem from="1587661540566" duration="1736000" />
+      <workItem from="1587663385558" duration="1769000" />
+      <workItem from="1587665274725" duration="1106000" />
     </task>
     <servers />
   </component>

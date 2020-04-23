@@ -1,6 +1,6 @@
 <?php
 
-
+echo \application\components\Message::get_message();
 ?>
 
 <html lang="en">
@@ -29,13 +29,12 @@
         <label for="new">Not new</label><br><br>
         <label>All products</label>
         <select type="text" name="sel" style="width:220px; height: 30px;">
-            <option value="" disabled selected>Choose your category</option>
-
             <?php if (!empty($data) && isset($data)): ?>
-            <?php foreach ($data as $key => $v): ?>
-
-                <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
-       <?php endforeach; ?>
+                <option value="" disabled selected>Choose your category</option>
+                <?php foreach ($data as  $v):
+                    //var_dump($v['name']);?>
+                    <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
+                <?php endforeach; ?>
                 <?php endif;?>
         </select>
 

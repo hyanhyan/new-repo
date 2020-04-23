@@ -20,9 +20,6 @@ echo \application\components\Message::get_message();
     <small><?php if (!empty($data) && isset($data['name'])){ echo $data['name'];} ?></small>
     <input type="submit" name="add" id="add" class="btn btn-success">Add
 </form>
-<script src="../../../../assets/category/js/jquery.min.js"></script>
-<script src="../../../../assets/category/js/popper.js"></script>
-<script src="../../../../assets/category/js/bootstrap.min.js"></script>
-<script src="../../../../assets/category/js/main.js"></script>
+
 </body>
 </html>

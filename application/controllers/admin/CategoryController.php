@@ -32,11 +32,10 @@ class CategoryController extends AdminBaseController
         if (!empty($_POST) && isset($_POST['add'])){
             $category = new Category($_POST);
             $validate = $category->validate();
-            if (!empty($category->validate())){
-                $this->view->render('admin/category/create', $validate);
-            }
-            if ($category->categoryCreate()){
-                Auth::goCategoryPage();
+            if (empty($validate)) {
+                if ($category->categoryCreate()) {
+                    Auth::goCategoryPage();
+                }
             }
         }
         $this->view->setTitle('Create Category');
@@ -50,23 +49,20 @@ class CategoryController extends AdminBaseController
         $select->execute();
         $arrSelect = $select->fetchAll(\PDO::FETCH_ASSOC);
 
-        if (!empty($_POST) && isset($_POST['submit'])){
+        if (!empty($_POST) && isset($_POST['submit'])) {
+            $name = $_POST['name'];
             $update = new Category($_POST);
             $validate = $update->validate();
-            if (!empty($update->validate())){
-                $this->view->render('admin/category/update', $validate);
+            if (empty($validate)) {
+                if (Category::categoryUpdate($id, $name)) {
+                    Auth::redirect('/admin/category');
 
-            }
-            $name = $_POST['name'];
-
-            $updCategory = Db::getConnection()->prepare("UPDATE `categories` SET `name`='$name' WHERE `id`='$id'");
-            $updCategory->execute();
-            if ($updCategory->execute()){
-               Auth::goCategoryPage();
+                }
             }
         }
+
         $this->view->setTitle('Update');
-        $this->view->render('admin/category/update', $arrSelect);
+        $this->view->render('admin/category/update',$arrSelect);
 
         return true;
     }

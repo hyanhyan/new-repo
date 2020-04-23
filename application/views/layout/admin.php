@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="../../../assets/admin/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-    <script src="../../assets/js/index.js"></script>
-    <script src="../../assets/js/jquery-3.5.0.min.js"></script>
+    <script src="../../../assets/javascript/jquery-3.5.0.min.js"></script>
+    <script src="../../../assets/javascript/script.js"></script>
 </head>
 <body>
 
@@ -89,9 +89,7 @@
             </nav>
 <!-- Content -->
 <?php include_once $this->basePath.$content.".php";; ?>
-
-
-
+            <script src="../../../assets/admin/jquery/jquery.min.js"></script>
     <script src="../../../assets/admin/js/jquery.min.js"></script>
     <script src="../../../assets/admin/js/popper.js"></script>
     <script src="../../../assets/admin/js/bootstrap.min.js"></script>

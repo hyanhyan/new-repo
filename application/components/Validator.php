@@ -38,11 +38,15 @@ class Validator
 
             if (isset($rules['name'])) {
                 $name = $rules['name'];
+               // var_dump($name);
+               // die();
                 foreach ($name as $key=>$value) {
-                    if (!preg_match('\'/\b([A-Z]{3}\s?(\d{3}|\d{2}|d{1})\s?[A-Z])|([A-Z]\s?(\d{3}|\d{2}|\d{1})\s?[A-Z]{3})|(([A-HK-PRSVWY][A-HJ-PR-Y])\s?([0][2-9]|[1-9][0-9])\s?[A-HJ-PR-Z]{3})\b/\'', $value)) {
+                    if ($value == '') {
                         $data[$key] = str_replace('_', ' ', $value).'message';
                     }
                 }
+                //var_dump($data);
+               // die();
                 if (!empty($data)) {
                     return $data;
                 }

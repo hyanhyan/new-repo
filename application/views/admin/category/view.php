@@ -79,7 +79,7 @@ use application\components\Db;
                     </tbody>
 
                 </table>
-                <script src="../../../../assets/js/index.js"></script>
+                <script src="../../../../assets/admin/js/index.js"></script>
                 <script src="../../../../assets/category/js/jquery-3.4.1.min.js"></script>
 </body>
 </html>
