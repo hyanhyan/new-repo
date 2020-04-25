@@ -1,25 +1,19 @@
 <?php
 echo \application\components\Message::get_message();
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Sidebar 09</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-success" href="/admin/category/index">Back</a>
+            <a class="btn btn-success" href="/admin/dashboard/index">Home</a>
+                <form class="text-center border border-light p-5" action="" method="post">
+                    <h2 class="mb-4">Add new category</h2>
+                    <input type="text" name="name" class="form-control" placeholder="Name category">
+                    <small><?php if (!empty($data) && isset($data['name'])){ echo $data['name'];} ?></small>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../../assets/category/css/style.css">
-</head>
-<body>
-<p>Add new category</p>
-<form action="/admin/category/create" method="post" id="add_details">
-    <input type="text" name="name" class="form-control" style="border:1px solid black">
-    <small><?php if (!empty($data) && isset($data['name'])){ echo $data['name'];} ?></small>
-    <input type="submit" name="add" id="add" class="btn btn-success">Add
-</form>
+                    <input class="btn btn-success my-4 btn-block" type="submit" name="add" value="Add">
+                </form>
+            </div>
+        </div>
 
-</body>
-</html>

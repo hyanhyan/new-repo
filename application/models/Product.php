@@ -21,6 +21,7 @@ class Product
     {
         if (!empty($post['name'])) {
             $this->name = $post['name'];
+
         }
         if (!empty($post['sel'])) {
             $this->option = $post['sel'];
@@ -42,7 +43,6 @@ class Product
     }
 
 
-    //var_dump($this->name);
 
 
     protected function rules()
@@ -76,13 +76,18 @@ class Product
         return $arrayCat;
     }
 
-    public function categorySelect()
+
+    public static function categorySelect()
     {
-         $category = [];
-         $categorySelect = Db::getConnection()->prepare("SELECT * FROM `categories`");
-         $cat=$categorySelect->fetchAll(\PDO::FETCH_ASSOC);
-         $category['id']=$cat['id'];
-         $category['name']=$cat['name'];
+
+        $categorySelect = Db::getConnection()->query("SELECT * FROM `categories`");
+        $i=0;
+        $category = array();
+        while($cat=$categorySelect->fetch()) {
+        $category[$i]['id'] = $cat['id'];
+        $category[$i]['name'] = $cat['name'];
+        $i++;
+        }
         return $category;
     }
     public function ProductCreate()
@@ -96,6 +101,8 @@ class Product
         }
         return false;
     }
+
+
 
 
 }

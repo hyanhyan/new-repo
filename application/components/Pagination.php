@@ -19,6 +19,7 @@ class Pagination
     private $count;
     private $limit;
 
+
     public function __construct($total, $current_page, $notes_on_page, $path)
     {
         $this->path = $path;
@@ -43,7 +44,7 @@ class Pagination
 
         if ($this->current_page > 1) {
             $Page = $this->current_page - 1;
-            $html .= "<a href='{$this->path}{$Page}}' style='background-color: lightseagreen; color: white' class='pag_link'>pre</a>";
+            $html .= "<a href='{$this->path}{$Page}}' style='background-color: lightseagreen; color: white' class='pag_link'>prev</a>";
         }
 
         $html .= $links;
@@ -76,7 +77,5 @@ class Pagination
     {
         return ceil($this->total / $this->notes_on_page);
     }
-
-
 
 }

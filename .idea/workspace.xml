@@ -2,34 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4ba4659-1022-4f82-93d2-87ea194ffa32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/javascript/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/javascript/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/javascript/jquery-1.11.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/javascript/jquery-3.5.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/javascript/jquery.gmap3.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/javascript/maps/jquery.nanoscroller.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/javascript/min/custom.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/javascript/min/plugins.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/javascript/owl.carousel.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/javascript/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/javascript/slick.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/javascript/sliderpro.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/javascript/wow.animation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/components/Validator.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/components/Validator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/base/AdminBaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/base/AdminBaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/base/BaseView.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/base/BaseView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/components/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/components/Auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/components/Pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/components/Pagination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/admin/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/admin/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/admin/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/admin/category/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/category/create.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/admin/category/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/category/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/category/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/category/update.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/admin/category/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/category/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/dashboard/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/dashboard/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/dashboard/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/dashboard/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/admin/product/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/product/create.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/admin/product/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/product/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/product/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/product/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/product/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/product/view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/layout/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layout/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layout/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layout/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/custom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/jquery-1.11.0.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/jquery-3.5.0.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/jquery.gmap3.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/maps/jquery.nanoscroller.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/min/custom.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/min/plugins.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/owl.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/slick.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/sliderpro.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/javascript/wow.animation.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/bxslider.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/bxslider.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/jquery-3.5.0.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/jquery-3.5.0.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery-3.5.0.min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/jquery.easing.1.3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/jquery.easing.1.3.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/jquery.sticky.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/jquery.sticky.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
@@ -77,9 +88,9 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\trining\assets" />
+      <recent name="C:\xampp\htdocs\trining\assets\js" />
       <recent name="C:\xampp\htdocs\trining\assets\admin\js" />
       <recent name="C:\xampp\htdocs\trining\assets\admin" />
-      <recent name="C:\xampp\htdocs\trining\assets\js" />
       <recent name="C:\xampp\htdocs\trining\application\components" />
     </key>
   </component>
@@ -152,7 +163,39 @@
       <workItem from="1587659482401" duration="1851000" />
       <workItem from="1587661540566" duration="1736000" />
       <workItem from="1587663385558" duration="1769000" />
-      <workItem from="1587665274725" duration="1106000" />
+      <workItem from="1587665274725" duration="1747000" />
+      <workItem from="1587667167743" duration="1737000" />
+      <workItem from="1587669029210" duration="1358000" />
+      <workItem from="1587723047506" duration="1525000" />
+      <workItem from="1587724782741" duration="1668000" />
+      <workItem from="1587726593200" duration="1731000" />
+      <workItem from="1587728912861" duration="1730000" />
+      <workItem from="1587730777723" duration="1759000" />
+      <workItem from="1587732638174" duration="2038000" />
+      <workItem from="1587735676228" duration="1726000" />
+      <workItem from="1587737907032" duration="1526000" />
+      <workItem from="1587739712429" duration="1764000" />
+      <workItem from="1587741565748" duration="1750000" />
+      <workItem from="1587743527869" duration="1761000" />
+      <workItem from="1587745712335" duration="1668000" />
+      <workItem from="1587747535523" duration="1703000" />
+      <workItem from="1587749446844" duration="1739000" />
+      <workItem from="1587751284605" duration="1842000" />
+      <workItem from="1587753683426" duration="1719000" />
+      <workItem from="1587755603749" duration="1381000" />
+      <workItem from="1587809729275" duration="1784000" />
+      <workItem from="1587811661178" duration="1705000" />
+      <workItem from="1587813591370" duration="1612000" />
+      <workItem from="1587815982915" duration="1687000" />
+      <workItem from="1587817796262" duration="1950000" />
+      <workItem from="1587819815886" duration="1722000" />
+      <workItem from="1587822945848" duration="1426000" />
+      <workItem from="1587824763435" duration="1933000" />
+      <workItem from="1587826755336" duration="1776000" />
+      <workItem from="1587828699148" duration="1704000" />
+      <workItem from="1587830515248" duration="1775000" />
+      <workItem from="1587832432433" duration="1728000" />
+      <workItem from="1587834497018" duration="1435000" />
     </task>
     <servers />
   </component>
@@ -171,5 +214,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/application/components/Pagination.php</url>
+          <line>59</line>
+          <properties>
+            <option name="className" value="\application\components\Pagination" />
+            <option name="methodName" value="limit" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

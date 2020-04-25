@@ -71,6 +71,7 @@ class Auth
         header("Location: /"); // redirect to home page
         die;
     }
+
     public static function redirect($url)
     {
         header("Location: ".$url);

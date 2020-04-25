@@ -18,4 +18,12 @@ class AdminBaseController
         $this->view = new BaseView();
         $this->view->setLayout('admin');
     }
+
+    public function isAdmin()
+    {
+        if (!Auth::isAdmin()) {
+            header("Location: /");
+            die;
+        }
+    }
 }

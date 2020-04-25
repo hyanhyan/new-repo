@@ -21,8 +21,8 @@ class UserController extends BaseController
         if (!empty($_POST) && isset($_POST['submit'])) {
             $model = new SignupForm($_POST);
             $val = $model->validate();
-            if (!empty($val['error'])) {
-                $this->view->render('user/register',$val['error']);
+            if (empty($val)) {
+                $this->view->render('user/register',$val);
             }
             if ($model->register()) {
                 Auth::goLoginPage();
@@ -38,8 +38,8 @@ class UserController extends BaseController
         if (!empty($_POST) && isset($_POST['submit'])){
             $model = new LoginForm($_POST);
             $val = $model->validate();
-            if (!empty($val['error'])) {
-                $this->view->render('user/login',$val['error']);
+            if (empty($val)) {
+                $this->view->render('user/login',$val);
             }
             if ($model->login()) {
                 Auth::goHome();

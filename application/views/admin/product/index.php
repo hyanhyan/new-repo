@@ -45,6 +45,8 @@ echo "All Categories";
 
     <div class="all">
         <div class="container">
+            <a class="btn btn" href="/admin/dashboard/index">Back</a>
+            <a class="btn btn" href="/">Home</a>
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
@@ -76,6 +78,7 @@ echo "All Categories";
 
                     <?php if (!empty($data) && isset($data)): ?>
                     <?php foreach ($data as $key => $v):
+                            //var_dump($v);
                             ?>
 
                         <tr>
@@ -93,10 +96,12 @@ echo "All Categories";
 
 
                             <td style="display: flex">
-                                <a href="/admin/product/update/<?= $v['id']?>&category_id=<?=$v['category_id']?>" class="edit" title="Edit"
+                                <a href="/admin/product/update/<?= $v['id']?>" class="edit" title="Edit"
                                    data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a style="color:#E34724" class="clear" title="Delete" data-toggle="tooltip"><i
-                                        class="material-icons">&#xE872;</i></a>
+                                <a href="/admin/product/view/<?=$v['id'] ;?>" class="edit" title="View"
+                                   data-toggle="tooltip"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                <a class="clear" title="Delete"  data-id="<?= $v['id']; ?>data-toggle="tooltip"><i
+                                            class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>
                         <?php endforeach;?>

@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../../assets/admin/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" href="../../../assets/category/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script src="../../../assets/javascript/jquery-3.5.0.min.js"></script>
     <script src="../../../assets/javascript/script.js"></script>
@@ -40,17 +39,15 @@
                                 <li class="active">
                                     <a href="/admin/category">Categories</a>
                                 </li>
-                                <li>
-                                    <a href="#">Page 2</a>
+                                <li class="active">
+                                    <a href="/admin/product">Products</a>
                                 </li>
-                                <li>
-                                    <a href="#">Page 3</a>
-                                </li>
+
                             </ul>
                         </li>
                         <li>
 
-                                    <a href="#">Product</a>
+                                    <a href="/">Home</a>
                                 </li>
                                 <li>
                                     <a href="#">Model</a>
@@ -89,11 +86,9 @@
             </nav>
 <!-- Content -->
 <?php include_once $this->basePath.$content.".php";; ?>
-            <script src="../../../assets/admin/jquery/jquery.min.js"></script>
-    <script src="../../../assets/admin/js/jquery.min.js"></script>
-    <script src="../../../assets/admin/js/popper.js"></script>
-    <script src="../../../assets/admin/js/bootstrap.min.js"></script>
-    <script src="../../../assets/admin/js/main.js"></script>
+
+            <script src="../../../assets/admin/js/jquery/jquery.min.js"></script>
+            <script src="../../../assets/admin/js/jquery-3.4.1.min.js"></script>
 </body>
 </html>
 <!-- Dashboard Main Footer -->

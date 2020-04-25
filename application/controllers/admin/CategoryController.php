@@ -4,6 +4,7 @@ namespace application\controllers\admin;
 use application\base\AdminBaseController;
 use application\components\Auth;
 use application\components\Db;
+use application\components\Pagination;
 use application\models\Category;
 
 class CategoryController extends AdminBaseController
@@ -16,12 +17,18 @@ class CategoryController extends AdminBaseController
     public function actionIndex()
     {
         $this->view->setTitle('Category');
-        $category = new Category($_POST);
+        $url=(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']==='on'?"https":"http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $parts=explode("/",$url);
+        $i=end($parts);
+        $category = new Category($_POST,$i);
         $array = $category->CategoryIndex();
+        var_dump($i);
+
         if (!empty($category->CategoryIndex())) {
             $this->view->render('admin/category/index', $array);
         }
-        $this->view->render('admin/category/index', []);
+
+        $this->view->render('admin/category/index',[]);
 
         return true;
     }

@@ -24,44 +24,12 @@
                                     <a href="/admin/category">Categories</a>
                                 </li>
                                 <li>
-                                    <a href = "/" class="edit">Home</a>
+                                    <a href = "/admin/product">Products</a>
                                 </li>
-                                <li>
-                                    <a href="#">Page 3</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href = "/" class="edit">Home</a>
-                        </li>
-                        <li class="active">
 
-                            <a href="#">Product</a>
-                        </li>
-                        <li>
-                            <a href="#">Model</a>
-                        </li>
-                    </ul>
-                    </li>
-                    <li>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Product</a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu">
 
-                            <li>
-                                <a href="#">Page 2</a>
-                            </li>
-                            <li>
-                                <a href="#">Page 3</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Model</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
                     </ul>
+
 
                     <div class="footer">
                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

@@ -45,8 +45,9 @@ echo "All Categories";
 <input type="search" id="catSearch" name="search">
 </form>
 <div id="content" class="p-4 p-md-5">
-    <a href = "/" class="edit">Home</a>
-    <a href = "/admin" class="edit">Dashboard</a>
+    <a class="btn btn" href="/admin/dashboard">Back</a>
+    <a class="btn btn" href="/">Home</a>
+
 
 
 <div class="all">
@@ -87,7 +88,7 @@ echo "All Categories";
                                data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a href="/admin/category/view/<?=$v['id'] ;?>" class="edit" title="View"
                                data-toggle="tooltip"><<i class="fa fa-eye" aria-hidden="true"></i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i
+                            <a class="delete" title="Delete" data-id="<?= $v['id']; ?> data-toggle="tooltip"><i
                                     class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>

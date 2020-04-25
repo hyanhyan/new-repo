@@ -20,7 +20,7 @@
 <div class="limiter">
     <div class="container">
         <div class="wrap-login100">
-            <form class="login100-form validate-form" method="post" action="/admin/category/index">
+            <form class="login100-form validate-form" method="post" action="/admin/dashboard/login">
 					<span class="login100-form-title p-b-34">
 Account Login
 </span>

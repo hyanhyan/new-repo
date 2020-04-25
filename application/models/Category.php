@@ -5,11 +5,13 @@ namespace application\models;
 
 
 use application\components\Db;
+use application\components\Pagination;
 use application\components\Validator;
 
 class Category
 {
     public $name;
+    private $params;
 
     public function __construct($post)
     {
@@ -17,6 +19,7 @@ class Category
             $this->name = $post['name'];
             //var_dump($this->name);
         }
+        $this->params=$post;
     }
 
     protected function rules()
@@ -55,10 +58,40 @@ class Category
 
     public function categoryIndex()
     {
-        $cat = Db::getConnection()->prepare("SELECT * FROM `categories`");
-        $cat->execute();
-        $arr = $cat->fetchAll(\PDO::FETCH_ASSOC);
+
+        $sql = "SELECT count(*) FROM categories";
+        $result = Db::getConnection()->prepare($sql);
+       $result->execute();
+       $number_of_rows = $result->fetchColumn();
+       //var_dump($number_of_rows);
+        if(isset($this->params) && !empty($this->params)) {
+            $currentPage = $this->params;
+        }
+
+        else{
+            $currentPage = 1;
+        }
+        $limit=4;
+
+        if($currentPage == 1) {
+            $notes_on_page=1;
+        } else{
+            $notes_on_page=($currentPage-1)*$limit;
+        }
+       //var_dump($notes_on_page);
+        var_dump($this->params);
+        $page = new Pagination($number_of_rows, $currentPage, $notes_on_page, '/admin/category/',$this->params);
+        $page->html();
+
+
+        //var_dump($obj);
+        //die();
+        $sel = "SELECT * FROM categories LIMIT  $notes_on_page, $limit";
+        $arr=Db::getConnection()->prepare($sel);
+        $arr->execute();
+
         return $arr;
+
     }
 
     public static function categoryUpdate($id,$name)

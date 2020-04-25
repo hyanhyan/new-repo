@@ -63,23 +63,27 @@ use application\components\Db;
                         <th>Name</th>
                         <th>Created date</th>
                         <th>Updated date</th>
-                        <th>Actions</th>
+
                     </tr>
                     </thead>
                     <tbody>
                     <tbody>
+                    <a class="btn btn-success" href="/admin/category/index">Back</a>
+                    <a class="btn btn-success" href="/admin/dashboard/index">Home</a>
+                    <a class="btn btn-success" href="/admin/category/update/<?= $data[0]['id']; ?>">Update</a>
+                    <button class="btn btn-danger delete" data-id="<?= $data[0]['id']; ?>">Delete</button>
                     <?php if (!empty($data) && isset($data)): ?>
                         <?php foreach ($data[0] as $key => $value): ?>
                             <tr>
                                 <th><?= $key; ?></th>
                                 <td><?= $value; ?></td>
                             </tr>
+
                         <?php endforeach; ?>
                     <?php endif; ?>
                     </tbody>
 
                 </table>
-                <script src="../../../../assets/admin/js/index.js"></script>
-                <script src="../../../../assets/category/js/jquery-3.4.1.min.js"></script>
+
 </body>
 </html>

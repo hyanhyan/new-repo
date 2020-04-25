@@ -18,7 +18,10 @@ class BaseView
     {
         include_once $this->basePath."layout/".$this->layout.'.php';
     }
-
+    public function Admin($content, $data)
+    {
+        include_once $this->basePath."admin/dashboard/".$this->layout.'.php';
+    }
     public function setLayout($layout)
     {
         $this->layout = $layout;
