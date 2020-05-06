@@ -23,11 +23,11 @@ class SignupForm
     public function __construct($post)
     {
 
-$this->first_name=$post['first_name'];
-$this->last_name=$post['last_name'];
-$this->email=$post['email'];
-$this->password=$post['password'];
-$this->confirm_password=$post['confirm_password'];
+        $this->first_name = $post['first_name'];
+        $this->last_name = $post['last_name'];
+        $this->email = $post['email'];
+        $this->password = $post['password'];
+        $this->confirm_password = $post['confirm_password'];
 
     }
 
@@ -71,16 +71,18 @@ $this->confirm_password=$post['confirm_password'];
     public function register()
     {
 
-        if ($this->validate() == []){
 
-            $password = User::hashPassword($this->password);
-            $insert = Db::getConnection()->prepare("INSERT INTO `users` (`first_name`, `last_name`, `email`, `password`, `cookie_key`)
-                        VALUES ('$this->first_name', '$this->last_name', '$this->email', '$password', NULL,'user')");
-            $insert->execute();
+        $password = User::hashPassword($this->password);
+        $insert = Db::getConnection()->prepare("INSERT INTO `users` (`first_name`, `last_name`, `email`, `password`, `cookie_key`)
+                        VALUES ('$this->first_name', '$this->last_name', '$this->email', '$password', NULL)");
+        $insert->execute();
 
 
-            return true;
-        }
-        return false;
+        return true;
+
+
+
     }
+
+
 }

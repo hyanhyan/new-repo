@@ -21,8 +21,21 @@ jQuery(document).ready(function($){
                 items:5,
             }
         }
-    });  
-    
+    });
+    var fullHeight = function() {
+
+        $('.js-fullheight').css('height', $(window).height());
+        $(window).resize(function(){
+            $('.js-fullheight').css('height', $(window).height());
+        });
+
+    };
+    fullHeight();
+
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+
     $('.related-products-carousel').owlCarousel({
         loop:true,
         nav:true,
@@ -93,3 +106,5 @@ jQuery(document).ready(function($){
 
   ga('create', 'UA-10146041-21', 'auto');
   ga('send', 'pageview');
+
+

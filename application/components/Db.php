@@ -19,7 +19,7 @@ class Db
         try {
             $db = new \PDO($dsn, $params['user'], $params['password']);
             $db->exec("set name utf8");
-            var_dump($db);
+
             return $db;
         }catch (\PDOException $e){
             echo $e->getMessage();

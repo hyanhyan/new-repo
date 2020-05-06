@@ -16,17 +16,36 @@ class CategoryController extends AdminBaseController
 
     public function actionIndex()
     {
+
+
         $this->view->setTitle('Category');
         $url=(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']==='on'?"https":"http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         $parts=explode("/",$url);
         $i=end($parts);
-        $category = new Category($_POST,$i);
-        $array = $category->CategoryIndex();
-        var_dump($i);
 
-        if (!empty($category->CategoryIndex())) {
-            $this->view->render('admin/category/index', $array);
+
+        $limit=10;
+        $offset=($i-1)*$limit;
+        $category = new Category($_POST);
+        $index = $category->categoryIndex($offset,$limit);
+        $arr=$category->categoryPaginate();
+
+        $searchName = $_POST['search'];
+
+        if (!empty($searchName)) {
+
+            $search = "SELECT * FROM categories WHERE `name` LIKE '$searchName%'";
+            $searchCategory = Db::getConnection()->prepare($search);
+            $searchCategory->execute();
+            $array = $searchCategory->fetchAll(\PDO::FETCH_ASSOC);
+
+            $this->view->render('admin/category/index', [$array,$arr]);
         }
+
+       else {
+            $this->view->render('admin/category/index', [$index,$arr]);
+        }
+
 
         $this->view->render('admin/category/index',[]);
 
@@ -36,12 +55,12 @@ class CategoryController extends AdminBaseController
 
     public function actionCreate()
     {
-        if (!empty($_POST) && isset($_POST['add'])){
+        if (!empty($_POST) && isset($_POST['add.php'])){
             $category = new Category($_POST);
             $validate = $category->validate();
             if (empty($validate)) {
                 if ($category->categoryCreate()) {
-                    Auth::goCategoryPage();
+                    Auth::redirect('/admin/category/1');
                 }
             }
         }
@@ -62,7 +81,7 @@ class CategoryController extends AdminBaseController
             $validate = $update->validate();
             if (empty($validate)) {
                 if (Category::categoryUpdate($id, $name)) {
-                    Auth::redirect('/admin/category');
+                    Auth::redirect('/admin/category/1');
 
                 }
             }
@@ -76,14 +95,13 @@ class CategoryController extends AdminBaseController
 
     public function actionDelete()
     {
-        $id = $_POST['id'];
-        $del = Db::getConnection()->prepare("DELETE FROM `categories` WHERE `id`='$id'");
-
-        if ($del) {
+        $id = $_POST['del_id'];
+        var_dump($id);
+        $del = Db::getConnection()->prepare("DELETE  FROM `categories` WHERE `id`='$id'");
+        $del->execute();
             echo 1;
             return true;
-        }
-        return false;
+
     }
 
     public function actionView($id)

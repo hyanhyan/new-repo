@@ -30,7 +30,6 @@ class Auth
                 $key = $_COOKIE['cookie_key'];
                 $select = Db::getConnection()->query("SELECT * FROM `users` WHERE `cookie_key` = '$key'")->fetchAll(\PDO::FETCH_ASSOC);
                 if ($select) {
-                    $rand_key = User::generateAuthKey();
                     return true;
                 }
 
@@ -40,13 +39,13 @@ class Auth
     }
 
 
-    public static function isAdmin($role)
+    public static function isAdmin()
     {
-        if ($_SESSION['user']['role'] == $role) {
+        if (Auth::checkLogged() && $_SESSION['users']['role'] === 'admin') {
             return true;
         }
 
-        return true;
+        return false;
     }
     public static function setSession($id, $role = '')
     {
@@ -76,21 +75,5 @@ class Auth
     {
         header("Location: ".$url);
     }
-    public static function goHome()
-    {
-        header("Location: /"); // redirect to home page
-    }
-    public static function goAdminPage()
-{
-    header("Location: /admin"); // redirect to admin page
-}
-    public static function goCategoryPage()
-    {
-        header('Location: /admin/category/index'); // redirect to category page
-    }
 
-    public static function goProductPage()
-    {
-        header("Location: /admin/product/index"); // redirect to login page
-    }
 }

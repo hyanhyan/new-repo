@@ -14,9 +14,12 @@ class User
 {
     public static function findByEmail($email)
     {
-        $user = ""; // get user by email
-        if($user) {
-            return $user;
+        $user = Db::getConnection()->prepare("SELECT * FROM `users` WHERE `email`='$email'"); // get user by email
+        $user->execute();
+        $user_info = $user->fetchAll(\PDO::FETCH_ASSOC);
+        print_r($user_info);
+        if($user_info) {
+            return $user_info;
         }
         return false;
     }
@@ -28,8 +31,7 @@ class User
 
     public static function hashPassword($password)
     {
-        $password = 123456;
-        return md5($password); // for example
+        return str_replace('$2y$10$', '', password_hash($password, PASSWORD_BCRYPT));
     }
 
     public static function findById($id)
@@ -41,8 +43,9 @@ class User
         return false;
     }
 
-    public static function generateAuthKey($length = 10)
+    public static function generateAuthKey($length)
     {
+            $length = 10;
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $charactersLength = strlen($characters);
             $randomString = '';

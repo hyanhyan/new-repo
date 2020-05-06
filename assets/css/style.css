@@ -185,6 +185,22 @@ z-index: 999;}
 	-ms-transition: all 0.45s ease;
 	transition: all 0.45s ease;
 }
+.all{
+    margin-left: -150px;
+    margin-top:-200px;
+}
+.btn {
+    background-color: #846459;
+    border: 1px solid black;
+    text-decoration: none;
+    color: white;
+    padding: 6px 12px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
 .block-slider img{
 	width: 100%;
 	height: auto;

@@ -21,6 +21,8 @@ class Router
     {
         $routesPath = __DIR__.'/../config/routes.php';
         $this->routes = include_once($routesPath);
+
+
     }
 
     private function getUri()
@@ -34,6 +36,7 @@ class Router
     {
         $uri = $this->getUri();
 
+
         foreach ($this->routes as $pattern => $path)
         {
             if (preg_match("~$pattern~",$uri)) {
@@ -46,11 +49,13 @@ class Router
                     $controllerPath = 'application/controllers/admin/';
                     array_shift($segments);
                 }
+
                 $controllerName = $controllerPath.ucfirst(array_shift($segments))."Controller";
 
                 $actionName = "action".ucfirst(array_shift($segments));
 
                 $parameters = $segments;
+
 
                 if (!file_exists($controllerName.'.php')) {
                     //header("Location: /error");
@@ -61,7 +66,7 @@ class Router
                 $objectName = new $controllerName();
 
                 if (!method_exists($objectName, $actionName)) {
-                   // header("Location: /error");
+                    //header("Location: /error");
                 }
 
                 $result = call_user_func_array(array($objectName, $actionName), $parameters);

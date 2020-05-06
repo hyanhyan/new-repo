@@ -19,10 +19,11 @@ class DashboardController extends AdminBaseController
     {
         if (!Auth::checkLogged()) {
             $this->view->setTitle('Admin Login');
-            $this->view->setLayout('login');
-            $this->view->Admin('admin/dashboard/login', []);
+
+            $this->view->render('admin/dashboard/login', []);
             die;
         }
+
         $this->isAdmin();
         $this->view->setTitle('Admin');
         $this->view->render('admin/dashboard/index', []);
@@ -38,18 +39,23 @@ class DashboardController extends AdminBaseController
             $admin_model = new LoginForm($_POST);
             $validate = $admin_model->validate();
             if (!empty($validate)) {
-                var_dump($validate);
-                die();
                 $this->view->render('admin/dashboard/login', $validate);
             }
-            if ($admin_model->login(true)) {
+            if ($admin_model->login()) {
                 $this->isAdmin();
-                Auth::goAdminPage();
-
+                Auth::redirect('/admin');
             }
         }
-        $this->view->setLayout('login');
-        $this->view->Admin('admin/dashboard/login', []);
+
+        $this->view->render('admin/dashboard/login', []);
+        return true;
+    }
+
+    public function actionProfile()
+    {
+        $this->view->setTitle('Profile');
+
+        $this->view->render('admin/dashboard/profile', []);
         return true;
     }
 }

@@ -23,7 +23,7 @@ class LoginForm
         $this->email = $post['email'];
         $this->password = $post['password'];
 
-        if (!empty($post['rememberMe'])){
+        if (isset($post['rememberMe'])){
             $this->rememberMe = $post['rememberMe'];
         }
     }
@@ -65,7 +65,8 @@ class LoginForm
     {
         if ($this->getUser()) {
             $user = $this->getUser();
-            $cookie_rand_key = User::generateAuthKey();
+            $cookie_rand_key = User::generateAuthKey(10);
+
             $email = $user[0]['email'];
             if($this->rememberMe) {
                 Db::getConnection()->query("UPDATE `users` SET `cookie_key`='$cookie_rand_key' WHERE `email`='$email'");

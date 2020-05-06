@@ -8,11 +8,40 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../assets/admin/css/style.css">
-    <link rel="stylesheet" href="../../../assets/category/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-    <script src="../../../assets/javascript/jquery-3.5.0.min.js"></script>
-    <script src="../../../assets/javascript/script.js"></script>
+
+    <script src="../../../assets/js/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../../../assets/js/index.js"></script>
+    <script src="../../../assets/admin/js/main.js"></script>
+
+
+    <style>
+        .all{
+            margin-left: -150px;
+            margin-top:-200px;
+        }
+        .btn {
+            background-color: #846459;
+            border: 1px solid black;
+            text-decoration: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+    </style>
+
+
 </head>
 <body>
 
@@ -37,10 +66,10 @@
                             <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dashboard</a>
                             <ul class="collapse list-unstyled" id="pageSubmenu">
                                 <li class="active">
-                                    <a href="/admin/category">Categories</a>
+                                    <a href="/admin/category/1">Categories</a>
                                 </li>
                                 <li class="active">
-                                    <a href="/admin/product">Products</a>
+                                    <a href="/admin/product/1">Products</a>
                                 </li>
 
                             </ul>
@@ -87,8 +116,8 @@
 <!-- Content -->
 <?php include_once $this->basePath.$content.".php";; ?>
 
-            <script src="../../../assets/admin/js/jquery/jquery.min.js"></script>
-            <script src="../../../assets/admin/js/jquery-3.4.1.min.js"></script>
+            <script src="../../../assets/js/jquery/jquery-3.4.1.min.js"></script>
+            <script src="../../../assets/js/index.js"></script>
 </body>
 </html>
 <!-- Dashboard Main Footer -->

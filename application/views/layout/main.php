@@ -1,5 +1,6 @@
 <!-- Main Header -->
 <?php
+
 ?>
 <!DOCTYPE html>
 <!--
@@ -29,6 +30,11 @@
     <link rel="stylesheet" href="../../../assets/css/owl.carousel.css">
     <link rel="stylesheet" href="../../../assets/css/style.css">
     <link rel="stylesheet" href="../../../assets/css/responsive.css">
+    <script src="../../../assets/js/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    <script src="../../../assets/js/index.js"></script>
+
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -36,12 +42,10 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-
-    <![endif]-->
 </head>
+<style>
+    .sidebar-categories .head{font-family:'Oswald', sans-serif;line-height:50px;background:#384aeb;padding:0 30px;font-size:18px;font-weight:400;color:#fff}.sidebar-categories .main-categories{padding:20px 28px;background:#f1f6f7}.sidebar-categories .main-categories .pixel-radio{background:transparent !important}.sidebar-categories .main-nav-list a{font-size:14px;display:block;line-height:50px;padding-left:10px;border-bottom:1px solid #eee}.sidebar-categories .main-nav-list a:hover{color:#384aeb}.sidebar-categories .main-nav-list a .number{color:#cccccc;margin-left:10px}.sidebar-categories .main-nav-list a .lnr{margin-right:10px;display:none}.sidebar-categories .main-nav-list.child a{padding-left:32px}.sidebar-filter{margin-top:30px}.sidebar-filter .top-filter-head{font-family:'Oswald', sans-serif;line-height:50px;background:#384aeb;padding:0 30px;font-size:18px;font-weight:400;color:#fff}.sidebar-filter .head{line-height:60px;padding:0 30px;font-size:15px;font-weight:400;color:#222;text-transform:capitalize}.sidebar-filter .common-filter{background:#f1f6f7;border-bottom:1px solid #eee;padding-bottom:25px}.sidebar-filter .common-filter .filter-list{position:relative;padding-left:28px}.sidebar-filter .common-filter:last-child{border-bottom:0}.filter-list{line-height:32px}.filter-list i{margin-right:10px;cursor:pointer}.filter-list .number{color:#ccc}.filter-list label{margin-bottom:3px;cursor:pointer}@-webkit-keyframes click-wave{0%{transform:translate(-50%, -50%) scale(1);opacity:0.35;position:absolute;top:50%;left:50%}100%{transform:translate(-50%, -50%) scale(3);opacity:0;top:50%;left:50%;position:absolute}}@-moz-keyframes click-wave{0%{transform:translate(-50%, -50%) scale(1);opacity:0.35;position:absolute;top:50%;left:50%}100%{transform:translate(-50%, -50%) scale(3);opacity:0;top:50%;left:50%;position:absolute}}@keyframes click-wave{0%{transform:translate(-50%, -50%) scale(1);opacity:0.35;position:absolute;top:50%;left:50%}100%{transform:translate(-50%, -50%) scale(3);opacity:0;top:50%;left:50%;position:absolute}}.pixel-radio{-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;position:relative;right:0;bottom:0;left:0;height:15px;width:15px;-webkit-transition:all 0.15s ease-out 0s;-moz-transition:all 0.15s ease-out 0s;transition:all 0.15s ease-out 0s;background:#fff;border:1px solid #999999;color:#fff;cursor:pointer;display:inline-block;margin-right:10px;outline:none;position:relative;z-index:1}.pixel-radio:checked{border:8px solid #384aeb}.pixel-radio:checked::after{-webkit-animation:click-wave 0.65s;-moz-animation:click-wave 0.65s;animation:click-wave 0.65s;background:#384aeb;content:'';display:block;width:15px;height:15px;border-radius:50%;position:relative;z-index:2;opacity:0}.pixel-radio{border-radius:50%;top:2px}.pixel-radio::after{border-radius:50%}
+</style>
 <body>
 
 <div class="header-area">
@@ -50,10 +54,16 @@
             <div class="col-md-8">
                 <div class="user-menu">
                     <ul>
-                        <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
+                        <?php if (!\application\components\Auth::checkLogged()): ?>
+                            <li><a href="/user/profile"><i class="fa fa-user"></i> My Account</a></li>
+                        <?php endif;?>
                         <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                        <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                        <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
+                        <?php if (!\application\components\Auth::checkLogged()): ?>
+                            <li><a href='/user/register'><i class="fa fa-user"></i>Registration</a></li>
+                            <li><a href='/user/login'><i class="fa fa-user"></i>Login</a></li>
+                        <?php else: ?>
+                            <li><a href='/user/logout'>Logout</a></li>
+                        <?php endif; ?>
 
                     </ul>
                 </div>
@@ -96,7 +106,7 @@
 
             <div class="col-sm-6">
                 <div class="shopping-item">
-                    <a href="cart.html">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                    <a href="/site/cart">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                 </div>
             </div>
         </div>
@@ -117,15 +127,11 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <?php if (!\application\components\Auth::checkLogged()): ?>
-                        <li><a href='/user/register'><i class="fa fa-user"></i>Registration</a></li>
-                        <li><a href='/user/login'><i class="fa fa-user"></i>Login</a></li>
-                    <?php else: ?>
-                        <li><a href='/user/logout'>Logout</a></li>
-                    <?php endif; ?>
-                    <li><a href='#'>Basket</a></li>
+                    <li><a href="site/products">Products</a></li>
+                    <li><a href='site/about'>About</a></li>
+                    <li><a href="site/contact">Contact</a></li>
+
+
                     <li>
                         <a href="#search"><i class="fa fa-search"></i></a>
                     </li>
@@ -135,7 +141,7 @@
     </div>
 </div> <!-- End mainmenu area --
 <!-- Content -->
-<?php include_once $this->basePath.$content.".php";; ?>
+<?php include_once $this->basePath.$content.".php"; ?>
 
 <!-- Main Footer -->
 <div class="footer-top-area">
@@ -233,9 +239,53 @@
 
 <!-- Main Script -->
 <script src="../../../assets/js/main.js"></script>
+<script src="../../../assets/js/index.js"></script>
 
 <!-- Slider -->
-<script type="text/javascript" src="js/bxslider.min.js"></script>
-<script type="text/javascript" src="js/script.slider.js"></script>
+<script type="text/javascript" src="../../../assets/js/bxslider.min.js"></script>
+<script type="text/javascript" src="../../../assets/js/script.slider.js"></script>
+
 </body>
+
+<script>
+
+    $(document).ready(function(){
+
+
+
+
+            var id = $('.add-to-cart-link').attr('data-id');
+            var quantity = $(".quantity option:selected").text()[5];
+            $('.add-to-cart-link').click(function(){
+            $.ajax({
+                url:window.location.origin + '/site/cart',
+                type:'GET',
+                data:{id:id,quantity:quantity},
+                success:function(data){
+                    $('.filter').append(data);
+                }
+            });
+        }
+
+    });
+
+
+
+
+
+    /*$.ajax({
+        url:window.location.origin + '/site/cart',
+        method:"POST",
+        data:{id:id,quantity:quantity},
+        dataType:'json',
+        success:function(data){
+           console.log(111);
+        }
+    });
+
+});*/
+
+
+</script>
+
 </html>

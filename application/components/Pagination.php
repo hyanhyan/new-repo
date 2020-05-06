@@ -7,6 +7,7 @@
  */
 
 namespace application\components;
+use application\components\Db;
 
 
 class Pagination
@@ -27,31 +28,34 @@ class Pagination
         $this->current_page = $current_page;
         $this->notes_on_page = $notes_on_page;
         $this->count = $this->countOfPages();
+
     }
 
     public function html()
     {
+
         $html = '';
         $links = '';
 
-        for ($i = $this->limit[0]; $i<=$this->limit[1]; $i++) {
-           if ($i == $this->current_page) {
-               $links .= '<a href="#" style="background-color: green; color: white" class="pag_link">'.$i.'</a>';
-           } else {
-               $links .= "<a href='{$this->path}{$i}}' style='background-color: lightseagreen; color: white' class='pag_link'>'.$i.'</a>";
-           }
+        for ($i = 1; $i<=$this->count; $i++) {
+
+            if ($i == $this->current_page) {
+                $links .= '<a href="#" style="background-color: green; color: white"  class="page_link">'.$i.'</a>';
+            } else {
+                $links .= "<a href='{$i}' style='background-color: lightseagreen; color: white' class='page_link'>'.$i.'</a>";
+            }
         }
 
         if ($this->current_page > 1) {
             $Page = $this->current_page - 1;
-            $html .= "<a href='{$this->path}{$Page}}' style='background-color: lightseagreen; color: white' class='pag_link'>prev</a>";
+            $html .= "<a href='{$Page}' style='background-color: lightseagreen; color: white' class='page_link'>prev</a>";
         }
 
         $html .= $links;
 
         if ($this->current_page < $this->count) {
             $Page = $this->current_page + 1;
-            $html .= "<a href='{$this->path}{$Page}}' style='background-color: lightseagreen; color: white' class='pag_link'>next</a>";
+            $html .= "<a href='{$Page}' style='background-color: lightseagreen; color: white' class='page_link'>next</a>";
         }
 
         return $html;
@@ -73,9 +77,10 @@ class Pagination
         return array($start, $end);
     }
 
-    private function countOfPages()
+    public function countOfPages()
     {
-        return ceil($this->total / $this->notes_on_page);
+        return ceil($this->total / 10);
+
     }
 
 }

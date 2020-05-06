@@ -19,13 +19,13 @@ class UserController extends BaseController
     public function actionRegister()
     {
         if (!empty($_POST) && isset($_POST['submit'])) {
-            $model = new SignupForm($_POST);
-            $val = $model->validate();
-            if (empty($val)) {
-                $this->view->render('user/register',$val);
-            }
-            if ($model->register()) {
-                Auth::goLoginPage();
+            $register = new SignupForm($_POST);
+            $validate = $register->validate();
+            if (!empty($validate)) {
+                $this->view->render('user/register', $validate);
+                if ($register->register()) {
+                    Auth::redirect('user/login');
+                }
             }
         }
         $this->view->render('user/register',[]);
@@ -36,17 +36,31 @@ class UserController extends BaseController
     public function actionLogin()
     {
         if (!empty($_POST) && isset($_POST['submit'])){
-            $model = new LoginForm($_POST);
-            $val = $model->validate();
-            if (empty($val)) {
+            $login = new LoginForm($_POST);
+            $val = $login->validate();
+            if (!empty($val)) {
                 $this->view->render('user/login',$val);
+
+            if ($login->login()) {
+                Auth::redirect('/');
             }
-            if ($model->login()) {
-                Auth::goHome();
             }
         }
         $this->view->render('user/login',[]);
-        echo "11";
+
         return true;
+    }
+    public function actionProfile()
+    {
+        $this->view->setTitle('Profile');
+
+        $this->view->render('user/profile', []);
+        return true;
+
+}
+    public function actionLogout()
+    {
+        Auth::logout();
+
     }
 }

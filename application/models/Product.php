@@ -5,6 +5,7 @@ namespace application\models;
 
 
 use application\components\Db;
+use application\components\Pagination;
 use application\components\Validator;
 
 class Product
@@ -43,8 +44,6 @@ class Product
     }
 
 
-
-
     protected function rules()
     {
         return [
@@ -66,14 +65,48 @@ class Product
         return [];
     }
 
-    public function ProductIndex()
+    public function productPaginate() {
+        $url=(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']==='on'?"https":"http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $parts=explode("/",$url);
+        $i=end($parts);
+        $sql = "SELECT count(*) FROM products";
+        $result = Db::getConnection()->prepare($sql);
+        $result->execute();
+        $number_of_rows = $result->fetchColumn();
+
+        if(isset($i) && !empty($i)) {
+            $currentPage = $i;
+        }
+
+        else{
+            $currentPage = 1;
+        }
+        $notes_on_page=10;
+
+        if($currentPage == 1) {
+            $notes_on_page=1;
+        } else{
+            $limit=($currentPage-1)/$notes_on_page;
+        }
+
+        $path="/admin/product/".$i;
+        $page = new Pagination($number_of_rows, $currentPage, $notes_on_page, $path);
+        return $page->html();
+
+    }
+
+    public function productIndex($notes_on_page,$limit)
     {
         $product = Db::getConnection()->query("SELECT `products`.*, `categories`.`name`  
                                         FROM `products`
-                                            LEFT JOIN `categories` ON products.category_id=categories.id");
+                                            LEFT JOIN `categories` ON products.category_id=categories.id LIMIT $notes_on_page, $limit");
+
+
         $product->execute();
-        $arrayCat = $product->fetchAll(\PDO::FETCH_ASSOC);
-        return $arrayCat;
+        $arrayProduct = $product->fetchAll(\PDO::FETCH_ASSOC);
+        return $arrayProduct;
+
+
     }
 
 
@@ -81,15 +114,16 @@ class Product
     {
 
         $categorySelect = Db::getConnection()->query("SELECT * FROM `categories`");
-        $i=0;
+        $i = 0;
         $category = array();
-        while($cat=$categorySelect->fetch()) {
-        $category[$i]['id'] = $cat['id'];
-        $category[$i]['name'] = $cat['name'];
-        $i++;
+        while ($cat = $categorySelect->fetch()) {
+            $category[$i]['id'] = $cat['id'];
+            $category[$i]['name'] = $cat['name'];
+            $i++;
         }
         return $category;
     }
+
     public function ProductCreate()
     {
         if ($this->validate() == []) {
@@ -102,7 +136,17 @@ class Product
         return false;
     }
 
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

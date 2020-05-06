@@ -11,15 +11,15 @@ use application\components\Validator;
 class Category
 {
     public $name;
-    private $params;
+
 
     public function __construct($post)
     {
         if (!empty($post['name'])) {
             $this->name = $post['name'];
-            //var_dump($this->name);
+
         }
-        $this->params=$post;
+
     }
 
     protected function rules()
@@ -45,8 +45,7 @@ class Category
 
     public function categoryCreate()
     {
-      //  var_dump($this->validate());
-       // die();
+
         if ($this->validate() == []) {
             $create = Db::getConnection()->prepare("INSERT INTO `categories` (`name`, `created_date`, `update_date`)
                             VALUES ('$this->name', now(), now())");
@@ -55,50 +54,51 @@ class Category
         }
         return false;
     }
-
-    public function categoryIndex()
-    {
-
+    public function categoryPaginate() {
+        $url=(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']==='on'?"https":"http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $parts=explode("/",$url);
+        $i=end($parts);
         $sql = "SELECT count(*) FROM categories";
         $result = Db::getConnection()->prepare($sql);
-       $result->execute();
-       $number_of_rows = $result->fetchColumn();
-       //var_dump($number_of_rows);
-        if(isset($this->params) && !empty($this->params)) {
-            $currentPage = $this->params;
+        $result->execute();
+        $number_of_rows = $result->fetchColumn();
+
+        if(isset($i) && !empty($i)) {
+            $currentPage = $i;
         }
 
         else{
             $currentPage = 1;
         }
-        $limit=4;
+        $notes_on_page=10;
 
         if($currentPage == 1) {
             $notes_on_page=1;
         } else{
-            $notes_on_page=($currentPage-1)*$limit;
+            $limit=($currentPage-1)/$notes_on_page;
         }
-       //var_dump($notes_on_page);
-        var_dump($this->params);
-        $page = new Pagination($number_of_rows, $currentPage, $notes_on_page, '/admin/category/',$this->params);
-        $page->html();
 
-
-        //var_dump($obj);
-        //die();
-        $sel = "SELECT * FROM categories LIMIT  $notes_on_page, $limit";
-        $arr=Db::getConnection()->prepare($sel);
-        $arr->execute();
-
-        return $arr;
+        $path="/admin/category/".$i;
+        $page = new Pagination($number_of_rows, $currentPage, $notes_on_page, $path);
+        return $page->html();
 
     }
+
+    public function categoryIndex($notes_on_page,$limit)
+    {
+        $sel = "SELECT * FROM categories  LIMIT  $notes_on_page, $limit";
+        $arr = Db::getConnection()->prepare($sel);
+        $arr->execute();
+        $arrayCat = $arr->fetchAll(\PDO::FETCH_ASSOC);
+        return $arrayCat;
+
+        }
+
+
 
     public static function categoryUpdate($id,$name)
     {
         $updCategory = Db::getConnection()->prepare("UPDATE `categories` SET `name`='$name' WHERE `id`='$id'");
-       // var_dump($updCategory->execute());
-        //die();
         return $updCategory->execute();
 
     }

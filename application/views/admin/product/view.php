@@ -1,5 +1,39 @@
 <?php
 ?>
+<html lang="en">
+<head>
+    <title>Sidebar 01</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../../../assets/admin/style.css">
+    <script src="../../../../assets/admin/js/main.js"></script>
+
+
+<style>
+    .all{
+        margin-left: -150px;
+        margin-top:-200px;
+    }
+    .btn {
+        background-color: #846459;
+        border: 1px solid black;
+        text-decoration: none;
+        color: white;
+        padding: 6px 12px;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        opacity: 0.6;
+        transition: 0.3s;
+    }
+</style>
+</head>
+<body>
 <form>
     <label for="search">Search product name</label>
     <br>
@@ -24,28 +58,16 @@
                     </div>
                 </div>
                 <table class="table table-bordered" id="table">
-                    <thead>
-                    <tr>
-                        <th style="width:20%">Id</th>
-                        <th style="width:20%">Name</th>
-                        <th style="width:20%">Category</th>
-                        <th style="width:20%">IsNew</th>
-                        <th style="width:20%">Price</th>
-                        <th style="width:20%">Image</th>
-                        <th style="width:20%">Desc</th>
-                        <th style="width:20%">Created date</th>
-                        <th style="width:20%">Updated date</th>
 
-                    </tr>
-                    </thead>
                     <tbody>
                     <tbody>
-                    <a class="btn btn-success" href="/admin/product/index">Back</a>
+                    <a class="btn btn-success" href="/admin/product/1">Back</a>
                     <a class="btn btn-success" href="/admin/dashboard/index">Home</a>
                     <a class="btn btn-primary" href="/admin/product/update/<?= $data[0]['id']; ?>">Update</a>
                     <button class="btn btn-danger delete" data-id="<?= $data[0]['id']; ?>">Delete</button>
                     <?php if (!empty($data) && isset($data)): ?>
-                        <?php foreach ($data[0] as $key => $value): ?>
+                        <?php foreach ($data[0] as $key => $value):
+                         ?>
                             <tr>
                                 <th><?= $key; ?></th>
                                 <td><?= $value; ?></td>
@@ -57,3 +79,9 @@
 
                 </table>
 
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

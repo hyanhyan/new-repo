@@ -19,11 +19,12 @@ echo "All Categories";
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../../assets/category/css/style.css">
-
+    <link rel="stylesheet" href="../../../../assets/admin/style.css">
+    <script src="../../../../assets/admin/js/main.js"></script>
 
 
     <style>
+
         .btn {
             background-color: #846459;
             border: 1px solid black;
@@ -37,20 +38,24 @@ echo "All Categories";
             transition: 0.3s;
         }
     </style>
+
 </head>
 <body>
-<form>
+
+<form method="post">
 <label for="search">Search category name</label>
 <br>
-<input type="search" id="catSearch" name="search">
+<input type="search" id="search_box" name="search">
+
 </form>
 <div id="content" class="p-4 p-md-5">
-    <a class="btn btn" href="/admin/dashboard">Back</a>
+    <a class="btn btn" href="/admin/dashboard/index">Back</a>
     <a class="btn btn" href="/">Home</a>
 
 
 
-<div class="all">
+
+
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
@@ -63,7 +68,7 @@ echo "All Categories";
                     </div>
                 </div>
             </div>
-            <table class="table table-bordered" id="table">
+            <table class="table table-bordered" id="dinamic_content">
                 <thead>
                 <tr>
                     <th>Id</th>
@@ -75,29 +80,77 @@ echo "All Categories";
                 </thead>
                 <tbody>
 
-                <?php if (!empty($data) && isset($data)): ?>
-                <?php foreach ($data as $key => $v): ?>
+                <?php if (!empty($data[0]) && isset($data[0])):
+
+
+                    ?>
+                <?php foreach ($data[0] as $key => $v): ?>
                 <tr>
                     <td><?= $v['id']; ?></td>
                     <td><?= $v['name']; ?></td>
                     <td><?= $v['created_date']; ?></td>
                     <td><?= $v['update_date']; ?></td>
-<td>
+                      <td style="display:flex">
                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                             <a href="/admin/category/update/<?=$v['id'] ;?>" class="edit" title="Edit"
                                data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a href="/admin/category/view/<?=$v['id'] ;?>" class="edit" title="View"
-                               data-toggle="tooltip"><<i class="fa fa-eye" aria-hidden="true"></i></a>
-                            <a class="delete" title="Delete" data-id="<?= $v['id']; ?> data-toggle="tooltip"><i
+                               data-toggle="tooltip"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <a class="delete" title="Delete" data-id="<?= $v['id'];?>" data-toggle="tooltip"><i
                                     class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
+                    <?php endforeach;
+                    echo $data[1];
+                    ?>
+
                 <?php endif;
+
 
 
 ?>
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+</div>
 
+</body>
+<script>
+    $(document).ready(function() {
+
+
+        load_data(1);
+
+        function load_data(page, text = '') {
+
+            $.ajax({
+                url: window.location.origin + '/admin/category',
+                method: 'POST',
+                data: {page: page, text: text},
+                success: function (data) {
+                    if (data) {
+                        $('#dynamic_content').html(data);
+                    }
+
+                }
+            });
+        }
+
+        $(document).on('click', '.page_link', function () {
+            var page = $(this)[0].innerText;
+            var text = $('#search_box').val();
+            load_data(page, text);
+
+
+        });
+        $('#search_box').keyup(function () {
+            var text = $(this).val();
+            load_data(1, text);
+        })
+
+
+    });
+</script>
 </html>

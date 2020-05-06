@@ -896,7 +896,7 @@ table.table th i {
   cursor: pointer;
 }
 table.table th:last-child {
-  width: 150px;
+  width: 100px;
 }
 table.table td a {
   cursor: pointer;

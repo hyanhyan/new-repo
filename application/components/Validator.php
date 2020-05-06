@@ -38,15 +38,12 @@ class Validator
 
             if (isset($rules['name'])) {
                 $name = $rules['name'];
-               // var_dump($name);
-               // die();
                 foreach ($name as $key=>$value) {
                     if ($value == '') {
                         $data[$key] = str_replace('_', ' ', $value).'message';
                     }
                 }
-                //var_dump($data);
-               // die();
+               
                 if (!empty($data)) {
                     return $data;
                 }

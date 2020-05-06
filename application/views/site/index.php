@@ -47,134 +47,77 @@
     <!-- ./Slider -->
 </div> <!-- End slider area -->
 
-<div class="promo-area">
-    <div class="zigzag-bottom"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="single-promo promo1">
-                    <i class="fa fa-refresh"></i>
-                    <p>30 Days return</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-promo promo2">
-                    <i class="fa fa-truck"></i>
-                    <p>Free shipping</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-promo promo3">
-                    <i class="fa fa-lock"></i>
-                    <p>Secure payments</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-promo promo4">
-                    <i class="fa fa-gift"></i>
-                    <p>New products</p>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-1 col-lg-4 col-md-5">
+            <div class="sidebar-categories">
+                <div class="head">Browse Categories</div>
+                <div class="list-group">
+                    <h3>Brand</h3>
+                    <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
+                        <?php
+                       use application\components\Db;
+                        $query = "SELECT DISTINCT `products`.*,categories.name FROM products LEFT JOIN `categories` ON products.category_id=categories.id  ORDER BY id DESC";
+                        $statement = Db::getConnection()->prepare($query);
+                        $statement->execute();
+                        $result = $statement->fetchAll();
+                        foreach($result as $row=>$v)
+
+                        {
+                            ?>
+                            <div class="list-group-item checkbox">
+                                <label><input type="checkbox" class="selectbox newbrand" value="<?php echo $v['name']; ?>"> <?php echo $v['name']; ?></label>
+                            </div>
+                            <?php
+                        }
+
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div> <!-- End promo area -->
+        <div class="maincontent-area">
+            <div class="zigzag-bottom">
 
-<div class="maincontent-area">
-    <div class="zigzag-bottom"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="latest-product">
-                    <h2 class="section-title">Latest Products</h2>
-                    <div class="product-carousel">
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="../../../assets/img/product-1.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                <div class="col-md-12">
+                    <div class="latest-product">
+                        <h2 class="section-title">Latest Products</h2>
+                        <div class="product-carousel">
+                            <?php foreach ($result as $item=> $v):
+
+                                ?>
+                                <div class="single-product">
+                                    <div class="product-f-image">
+                                        <img src="<?=$v['image_path']?>" alt="">
+                                        <div class="product-hover">
+
+                                            <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                        </div>
+
+                                    </div>
+                                    <form method="post" action="site/cart/?action=add&pid=<?=$v["id"]; ?>">
+                                    <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" />
+                                        <input type="submit" value="Add to Cart" class="btnAddAction" /></div><i class="fa fa-shopping-cart"></i> Add to cart
+                                    </form>
+                                    <div class="product_id" style="display:none"><?=$v['id']?></div>
+                                    <h2><a href="#"><?=$v['prName']?> </a></h2>
+
+                                    <div class="product-carousel-price">
+                                        <ins><?=$v['price']?></ins>
+                                    </div>
+
+
                                 </div>
-                            </div>
+                            <?php endforeach;?>
 
-                            <h2><a href="sin#">Samsung Galaxy s5- 2015</a></h2>
 
-                            <div class="product-carousel-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>
+
+
+
                         </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="../../../assets/img/product-2.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2>Nokia Lumia 1320</h2>
-                            <div class="product-carousel-price">
-                                <ins>$899.00</ins> <del>$999.00</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="../../../assets/img/product-3.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2>LG Leon 2015</h2>
-
-                            <div class="product-carousel-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="../../../assets/img/product-4.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2><a href="#">Sony microsoft</a></h2>
-
-                            <div class="product-carousel-price">
-                                <ins>$200.00</ins> <del>$225.00</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="../../../assets/img/product-5.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2>iPhone 6</h2>
-
-                            <div class="product-carousel-price">
-                                <ins>$1200.00</ins> <del>$1355.00</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="../../../assets/img/product-6.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2><a href="#">Samsung gallaxy note 4</a></h2>
-
-                            <div class="product-carousel-price">
-                                <ins>$400.00</ins>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -356,6 +299,94 @@
         </div>
     </div>
 </div> <!-- End product widget area -->
+<script>
+    /*
+    $(document).ready(function(){
+
+        filter_data();
+
+        function filter_data()
+        {
+            $('.fill-data').html('<div id="load" style=""></div>');
+
+            var select = get_filter('newbrand');
+
+
+            $.ajax({
+                url:window.location.origin + '/site/productFilter',
+                method:"POST",
+                data:{select:select},
+                success:function(data){
+                    $('.fill-data').append(data);
+                }
+            });
+        }
+
+        function get_filter(class_name)
+        {
+            var filter = [];
+            $('.'+class_name+':checked').each(function(){
+                filter.push($(this).val());
+            });
+            return filter;
+        }
+
+        $('.selectbox').click(function(){
+            filter_data();
+        });
+
+
+
+    });/*
+
+    /* $(document).ready(function(){
+
+
+         function data()
+         {
+
+             var id = $('.add-to-cart-link').attr('data-id');
+             var quantity = $(".quantity option:selected").text()[5];
+
+             $.ajax({
+                 url:window.location.origin + '/site/add',
+                 method:"POST",
+                 data:{id:id,quantity:quantity},
+                 success:function(data){
+                     $('.filter').append(data);
+                 }
+             });
+         }
+
+
+
+         $('.add-to-cart-link').click(function(){
+             window.location.href='/site/cart';
+             data();
+         });
+
+
+
+     });
+
+
+
+
+
+     /*$.ajax({
+         url:window.location.origin + '/site/cart',
+         method:"POST",
+         data:{id:id,quantity:quantity},
+         dataType:'json',
+         success:function(data){
+            console.log(111);
+         }
+     });
+
+ });*/
+
+
+</script>
 
 <!-- Latest jQuery form server -->
 

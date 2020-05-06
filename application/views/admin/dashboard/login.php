@@ -1,5 +1,6 @@
 <?php
-?><!doctype html>
+?>
+<!Doctype html>
 <html lang="en">
 <head>
     <title>Sidebar 09</title>
@@ -9,8 +10,27 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../../assets/category/css/style.css">
-    <link rel="stylesheet" href="../../../assets/admin/css/style.css">
+    <link rel="stylesheet" href="../../../../assets/admin/style.css">
+    <script src="../../../../assets/admin/js/main.js"></script>
+
+
+    <style>
+
+        .btn {
+            background-color: #846459;
+            border: 1px solid black;
+            text-decoration: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+    </style>
+
+</head>
 </head>
 <body>
 
@@ -46,12 +66,7 @@ Account Login
 Forgot
 						</span>
 
-                    <a href="#" class="txt2">
-User name / password?
-                    </a>
 
-                </div>
-                <a href="" class="button" value="Logout">Logout</a>
             </form>
 
         </div>
@@ -61,11 +76,6 @@ User name / password?
 
 
 <div id="dropDownSelect1"></div>
-<script src="../../../assets/admin/js/jquery.min.js"></script>
-<script src="../../../assets/admin/js/popper.js"></script>
-<script src="../../../assets/admin/js/bootstrap.min.js"></script>
-<script src="../../../assets/admin/js/main.js"></script>
-<script src="../../../assets/category/js/index.js"></script>
-<script src="../../../assets/category/js/jquery-3.4.1.min.js"></script>
+
 </body>
 </html>

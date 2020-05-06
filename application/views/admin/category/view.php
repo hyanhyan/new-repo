@@ -13,11 +13,12 @@ use application\components\Db;
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../../assets/category/css/style.css">
-
+    <link rel="stylesheet" href="../../../../assets/admin/style.css">
+    <script src="../../../../assets/admin/js/main.js"></script>
 
 
     <style>
+
         .btn {
             background-color: #846459;
             border: 1px solid black;
@@ -31,6 +32,7 @@ use application\components\Db;
             transition: 0.3s;
         }
     </style>
+
 </head>
 <body>
 <form>
@@ -57,18 +59,11 @@ use application\components\Db;
                     </div>
                 </div>
                 <table class="table table-bordered" id="table">
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Created date</th>
-                        <th>Updated date</th>
 
-                    </tr>
-                    </thead>
+
                     <tbody>
                     <tbody>
-                    <a class="btn btn-success" href="/admin/category/index">Back</a>
+                    <a class="btn btn-success" href="/admin/category/1">Back</a>
                     <a class="btn btn-success" href="/admin/dashboard/index">Home</a>
                     <a class="btn btn-success" href="/admin/category/update/<?= $data[0]['id']; ?>">Update</a>
                     <button class="btn btn-danger delete" data-id="<?= $data[0]['id']; ?>">Delete</button>
