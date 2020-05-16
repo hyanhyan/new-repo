@@ -61,28 +61,37 @@ class LoginForm
 
 
 
-    public function login()
+    public function login($role = null)
     {
         if ($this->getUser()) {
             $user = $this->getUser();
-            $cookie_rand_key = User::generateAuthKey(10);
 
+            if ($role && $user[0]['role'] !== 'admin'){
+                return false;
+            }
+            Auth::setSession($user[0]['id']);
+            $cookie_rand_key = User::generateAuthKey(10);
             $email = $user[0]['email'];
             if($this->rememberMe) {
+
                 Db::getConnection()->query("UPDATE `users` SET `cookie_key`='$cookie_rand_key' WHERE `email`='$email'");
                 Auth::setCookie($user[0]['first_name'], $cookie_rand_key);
+
             }
             return true;
         }
         return false;
     }
 
+
     public function getUser()
     {
-        $user = User::findByEmail($this->email);
-        $pass = password_verify($this->password, '$2y$10$'.$user[0]['password']);
-        if ($pass) {
-            return $user;
+        if ($this->validate() == []) {
+            $user = User::findByEmail($this->email);
+            $pass = password_verify($this->password, '$2y$10$' . $user[0]['password']);
+            if ($pass) {
+                return $user;
+            }
         }
         return false;
     }

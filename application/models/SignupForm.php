@@ -28,6 +28,12 @@ class SignupForm
         $this->email = $post['email'];
         $this->password = $post['password'];
         $this->confirm_password = $post['confirm_password'];
+        var_dump($this->first_name);
+        var_dump($this->last_name);
+        var_dump($this->email);
+        var_dump($this->password);
+        var_dump($this->confirm_password);
+
 
     }
 
@@ -62,7 +68,7 @@ class SignupForm
             return $validator->validate();
         }
         if ($this->password != $this->confirm_password) {
-            return ['password' => 'password is incorrect'];
+            return ['confirm_password' => 'password is incorrect'];
         }
         return [];
     }
@@ -71,18 +77,18 @@ class SignupForm
     public function register()
     {
 
+        if ($this->validate() == []) {
+            $password = User::hashPassword($this->password);
+            $insert = Db::getConnection()->prepare("INSERT INTO `users` (`first_name`, `last_name`, `email`, `password`, `cookie_key`)
+                        VALUES ('$this->first_name', '$this->last_name', '$this->email', '$password',NULL)");
 
-        $password = User::hashPassword($this->password);
-        $insert = Db::getConnection()->prepare("INSERT INTO `users` (`first_name`, `last_name`, `email`, `password`, `cookie_key`)
-                        VALUES ('$this->first_name', '$this->last_name', '$this->email', '$password', NULL)");
         $insert->execute();
 
+            return true;
+        }
+        return false;
 
-        return true;
-
-
-
-    }
+}
 
 
 }

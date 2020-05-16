@@ -1,6 +1,6 @@
 <!-- Register Page Content -->
 <div class="container">
-    <form method="post" action="/user/register">
+    <form  action="/user/register" method="post">
         <div class="form-group">
             <label for="first_name">Username</label>
             <?php if (!empty($data) && isset($data['first_name'])) : ?>

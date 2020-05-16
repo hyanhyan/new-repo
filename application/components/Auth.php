@@ -30,6 +30,8 @@ class Auth
                 $key = $_COOKIE['cookie_key'];
                 $select = Db::getConnection()->query("SELECT * FROM `users` WHERE `cookie_key` = '$key'")->fetchAll(\PDO::FETCH_ASSOC);
                 if ($select) {
+                    $cookie_rand_key = User::generateAuthKey(10);
+                        Db::getConnection()->query("UPDATE `users` SET `cookie_key` = '$cookie_rand_key' WHERE `cookie_key` = '$key'");
                     return true;
                 }
 
@@ -41,7 +43,7 @@ class Auth
 
     public static function isAdmin()
     {
-        if (Auth::checkLogged() && $_SESSION['users']['role'] === 'admin') {
+        if ($_SESSION['users']['role'] === 'admin') {
             return true;
         }
 

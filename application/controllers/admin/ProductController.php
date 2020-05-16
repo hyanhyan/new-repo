@@ -132,7 +132,6 @@ class ProductController extends AdminBaseController
             $fileName = $_FILES['file']['name'];
             $fileError = $_FILES['file']['error'];
             $fileSize = $_FILES['file']['size'];
-            //$extension = end(explode(".", $_FILES['file']['name']));
             $extension = pathinfo($fileName, PATHINFO_EXTENSION);
             $allowed_type = ["jpg", "jpeg", "png", "gif"];
 

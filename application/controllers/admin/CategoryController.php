@@ -30,17 +30,16 @@ class CategoryController extends AdminBaseController
         $index = $category->categoryIndex($offset,$limit);
         $arr=$category->categoryPaginate();
 
-        $searchName = $_POST['search'];
+        if (!empty($_POST["search"])) {
 
-        if (!empty($searchName)) {
-
-            $search = "SELECT * FROM categories WHERE `name` LIKE '$searchName%'";
+            $search = "SELECT * FROM categories WHERE `name` LIKE '" . $_POST["search"] . "%'";
             $searchCategory = Db::getConnection()->prepare($search);
             $searchCategory->execute();
             $array = $searchCategory->fetchAll(\PDO::FETCH_ASSOC);
 
-            $this->view->render('admin/category/index', [$array,$arr]);
+            $this->view->render('admin/category/index', [$array, $arr]);
         }
+
 
        else {
             $this->view->render('admin/category/index', [$index,$arr]);
@@ -55,7 +54,7 @@ class CategoryController extends AdminBaseController
 
     public function actionCreate()
     {
-        if (!empty($_POST) && isset($_POST['add.php'])){
+        if (!empty($_POST) && isset($_POST['add'])){
             $category = new Category($_POST);
             $validate = $category->validate();
             if (empty($validate)) {

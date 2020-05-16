@@ -36,12 +36,12 @@ class DashboardController extends AdminBaseController
         $this->view->setTitle('Admin Login');
 
         if (!empty($_POST) && isset($_POST['submit'])) {
-            $admin_model = new LoginForm($_POST);
-            $validate = $admin_model->validate();
+            $admin = new LoginForm($_POST);
+            $validate = $admin->validate();
             if (!empty($validate)) {
                 $this->view->render('admin/dashboard/login', $validate);
             }
-            if ($admin_model->login()) {
+            if ($admin->login(true)) {
                 $this->isAdmin();
                 Auth::redirect('/admin');
             }

@@ -4,7 +4,7 @@
 <div class="limiter">
     <div class="container">
         <div class="wrap-login100">
-            <form class="login100-form validate-form" method="post" action="/">
+            <form class="login100-form validate-form" method="post" action="">
 					<span class="login100-form-title p-b-34">
 						Account Login
 					</span>
@@ -37,7 +37,7 @@
                     </a>
 
                 </div>
-            <a href='/user/logout' class="login100-form-btn">Logout</a>
+         
             </form>
 
         </div>

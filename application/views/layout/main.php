@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="../../../assets/css/owl.carousel.css">
     <link rel="stylesheet" href="../../../assets/css/style.css">
     <link rel="stylesheet" href="../../../assets/css/responsive.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="../../../assets/js/jquery/jquery-3.4.1.min.js"></script>
     <script src="../../../assets/js/main.js"></script>
     <script src="../../../assets/js/index.js"></script>
@@ -245,6 +246,8 @@
 <script type="text/javascript" src="../../../assets/js/bxslider.min.js"></script>
 <script type="text/javascript" src="../../../assets/js/script.slider.js"></script>
 
+<script src="../../../assets/js/jquery/jquery-3.4.1.min.js"></script>
+
 </body>
 
 <script>
@@ -265,9 +268,10 @@
                     $('.filter').append(data);
                 }
             });
-        }
+        })
 
     });
+
 
 
 

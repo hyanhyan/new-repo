@@ -12,6 +12,7 @@ use application\base\BaseController;
 use application\components\Auth;
 use application\components\Db;
 use application\models\Cart;
+use application\models\Order;
 
 class SiteController extends BaseController
 {
@@ -48,6 +49,7 @@ class SiteController extends BaseController
     }
     public function actionFilter()
     {
+
         $this->view->setTitle('filter');
         $this->view->render('site/filter', []);
 
@@ -76,19 +78,24 @@ class SiteController extends BaseController
         return true;
     }
 
-public function actiondeleteCart()
+public function actionDelete()
 {
-    if(!empty($_SESSION["cart_item"])) {
-        foreach($_SESSION["cart_item"] as $k => $v) {
-            if($_GET["id"] == $k)
-                unset($_SESSION["cart_item"][$k]);
-            if(empty($_SESSION["cart_item"]))
-                unset($_SESSION["cart_item"]);
+            $this->view->setTitle('delete');
+            $this->view->render('site/delete',[]);
+            return true;
         }
-    }
-}
+
+
+
+
     public function actionOrder()
     {
+        $id=$_GET["id"];
+        var_dump($id);
+         $order=new Order($id);
+          $new_order=$order->orderCreate();
+           
+
         $this->view->setTitle('order');
         $this->view->render('site/order',[]);
         return true;

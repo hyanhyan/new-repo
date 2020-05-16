@@ -8,24 +8,24 @@ if(isset($_POST["brand"]))
     $brand_filter = implode("','", $_POST["brand"]);
 
 }
-    $query = "
+$query = "
 		SELECT * FROM products LEFT JOIN `categories` ON products.category_id=categories.id WHERE categories.name='$brand_filter';
 	";
 
-    $statement = Db::getConnection()->prepare($query);
-    $statement->execute();
-    $result = $statement->fetchAll();
+$statement = Db::getConnection()->prepare($query);
+$statement->execute();
+$result = $statement->fetchAll();
 
 
 
 
 
 
-    $total_row = $statement->rowCount();
-    $output = '';
-    if($total_row > 0) {
-        foreach ($result as $row) {
-            $output .= '
+$total_row = $statement->rowCount();
+$output = '';
+if($total_row > 0) {
+    foreach ($result as $row) {
+        $output .= '
 			<div class="col-sm-4 col-lg-3 col-md-3">
 				<div style="border:1px solid #ccc; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;">
 					<img src="image/' . $row['image_path'] . '" alt="" class="img-responsive" >
@@ -38,13 +38,13 @@ if(isset($_POST["brand"]))
 
 			</div>
 			';
-        }
     }
-    else
-    {
-        $output = '<h3>No Data Found</h3>';
-    }
-    echo $output;
+}
+else
+{
+    $output = '<h3>No Data Found</h3>';
+}
+echo $output;
 
 
 ?>

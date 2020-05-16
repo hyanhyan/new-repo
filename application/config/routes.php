@@ -25,7 +25,7 @@ return array(
     'site/products'=>'site/products',
     'site/filter'=>'site/filter',
     'site/cart'=>'site/cart',
-    'site/deleteCart'=>'site/deleteCart',
+    'site/delete'=>'site/delete',
     'site/about'=>'site/about',
     'site/order'=>'site/order',
     '' => 'site/index',

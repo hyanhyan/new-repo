@@ -1,6 +1,6 @@
 
 
-<a id="btnEmpty" href="/site/products?action=empty">Empty Cart</a>
+<a id="btnEmpty" href="/site/products/?action=empty">Empty Cart</a>
 <?php
 
 if(isset($data)){
@@ -30,7 +30,10 @@ if(isset($data)){
                 <td style="text-align:right;"><?php echo "$ ".$item['price']; ?></td>
                 <td style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
 
-                <td style="text-align:center;"><a href="/site/deleteCart/?action=remove&id=<?php echo $item['id']; ?>" class="btnRemoveAction"><img src="../../../assets/img/delete.png" alt="Remove Item" /></a></td>
+                <td style="text-align:center;"><a class="btnRemoveAction" data-id="<?=$item['id']?>" data-toggle="tooltip"><i
+                                class="material-icons">&#xE872;</i></a></td>
+                <td style="text-align:center;"><a href='/site/order/?quantity=<?=$item["quantity"]?>&id=<?=$item["id"]; ?>"' class='btn btn-success m-b-10px'><i
+                            class="material-icons">add_shopping_cart</i>
             </tr>
             <?php
             $total_quantity += $item['quantity'];
@@ -55,4 +58,24 @@ if(isset($data)){
 }
 ?>
 
+<script>
+    $(document).on('click', '.btnRemoveAction', function () {
 
+        let id = $(this).attr('data-id');
+        let del = $(this).closest('tr')[0];
+            $.ajax({
+                url:window.location.origin + '/site/delete',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {del_id: id},
+                success: function (response) {
+
+                   del.remove();
+               }
+
+                })
+
+        })
+
+
+</script>

@@ -98,6 +98,7 @@
                                         </div>
 
                                     </div>
+
                                     <form method="post" action="site/cart/?action=add&pid=<?=$v["id"]; ?>">
                                     <div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" />
                                         <input type="submit" value="Add to Cart" class="btnAddAction" /></div><i class="fa fa-shopping-cart"></i> Add to cart
@@ -111,7 +112,9 @@
 
 
                                 </div>
+
                             <?php endforeach;?>
+
 
 
 

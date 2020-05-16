@@ -120,35 +120,34 @@ echo "All Categories";
 <script>
     $(document).ready(function() {
 
+            $('#search_box').keyup(function () {
+                var text = $(this).val();
+                if(text == "") {
+                    $("#dynamic_content").html("");
 
-        load_data(1);
+                } else {
+                    $.ajax({
+                        url: window.location.origin + '/admin/category/1',
+                        method: 'POST',
+                        data: {search: text},
+                        dataType:"text",
+                        success: function (data) {
+                            if (data) {
+                                $('#dynamic_content').html(data);
+                            }
+                        }
 
-        function load_data(page, text = '') {
-
-            $.ajax({
-                url: window.location.origin + '/admin/category',
-                method: 'POST',
-                data: {page: page, text: text},
-                success: function (data) {
-                    if (data) {
-                        $('#dynamic_content').html(data);
-                    }
-
+                    });
                 }
             });
-        }
 
-        $(document).on('click', '.page_link', function () {
+
+       /* $(document).on('click', '.page_link', function () {
             var page = $(this)[0].innerText;
             var text = $('#search_box').val();
-            load_data(page, text);
 
+        });*/
 
-        });
-        $('#search_box').keyup(function () {
-            var text = $(this).val();
-            load_data(1, text);
-        })
 
 
     });

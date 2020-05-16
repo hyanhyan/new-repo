@@ -22,10 +22,11 @@ class UserController extends BaseController
             $register = new SignupForm($_POST);
             $validate = $register->validate();
             if (!empty($validate)) {
-                $this->view->render('user/register', $validate);
-                if ($register->register()) {
-                    Auth::redirect('user/login');
-                }
+                $this->view->render('user/register', $validate);die();
+
+            }
+            if ($register->register()) {
+                Auth::redirect('/user/login');
             }
         }
         $this->view->render('user/register',[]);
@@ -39,13 +40,13 @@ class UserController extends BaseController
             $login = new LoginForm($_POST);
             $val = $login->validate();
             if (!empty($val)) {
-                $this->view->render('user/login',$val);
-
+                $this->view->render('user/login', $val);
+            }
             if ($login->login()) {
                 Auth::redirect('/');
             }
             }
-        }
+
         $this->view->render('user/login',[]);
 
         return true;
